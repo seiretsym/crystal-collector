@@ -22,6 +22,8 @@ function randCluster(obj1, obj2, obj3, obj4) {
 // generate random value for goal
 function randGoal(obj) {
     goal.val(Math.floor(Math.random() * 102) + 19);
+    // update goal value
+    goal.text(goal.val());
 } 
 
 // add value to total clusters collected
@@ -30,6 +32,29 @@ function addCluster(obj) {
     // update text
     clusters.text(parseInt(clusters.text()) + parseInt(obj.value));
 }
+
+// compare clusters to goal
+function checkClusters() {
+    // check for win
+    if (clusters.val === goal.val) {
+        win();
+    }
+    // check for lose
+    else if ( clusters.val > goal.val) {
+        lose();
+    }
+}
+
+// win
+function win() {
+   
+}
+
+// lose
+function lose() {
+
+}
+
 /// events
 // initialize game
 randCluster(clust1, clust2, clust3, clust4);
@@ -38,5 +63,6 @@ randGoal(goal);
 $(document).ready(function() { 
     $(".cluster").on("click", function() {
         addCluster(this);
+        checkClusters();
     });
 })
