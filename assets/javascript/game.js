@@ -5,10 +5,10 @@ var clust1 = $("#earth"),
     clust2 = $("#fire"),
     clust3 = $("#ice"),
     clust4 = $("#lightning"),
-    textWin = $("#wins").text(),
-    textLose = $("#losses").text(),
-    textClusters = $("#clusters").text(),
-    textGoal = $("#goal").text();
+    win = $("#wins"),
+    lose = $("#losses"),
+    clusters = $("#clusters"),
+    goal = $("#goal");
 
 /// functions
 // generate random values for each cluster
@@ -18,6 +18,11 @@ function randCluster(obj1, obj2, obj3, obj4) {
     clust3.val(Math.floor(Math.random() * 12) + 1);
     clust4.val(Math.floor(Math.random() * 12) + 1);
 }
+
+// generate random value for goal
+function randGoal(obj) {
+    goal.val(Math.floor(Math.random() * 120) + 1);
+} 
 
 randCluster(clust1, clust2, clust3, clust4);
 /// events
