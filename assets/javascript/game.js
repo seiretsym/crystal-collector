@@ -48,11 +48,21 @@ function checkClusters() {
 // win
 function win() {
    wins.text(parseInt(wins.text()) + 1);
+   newGame();
 }
 
 // lose
 function lose() {
     losses.text(parseInt(losses.text()) + 1);
+    newGame();
+}
+
+// new game after win/lose
+function newGame() {
+    clusters.val(0);
+    clusters.text(0);
+    randCluster(clust1, clust2, clust3, clust4);
+    randGoal(goal);
 }
 
 /// events
@@ -61,6 +71,7 @@ clusters.val(0);
 randCluster(clust1, clust2, clust3, clust4);
 randGoal(goal);
 
+// listener
 $(document).ready(function() { 
     $(".cluster").on("click", function() {
         addCluster(this);
