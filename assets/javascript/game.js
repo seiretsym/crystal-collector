@@ -5,8 +5,8 @@ var clust1 = $("#earth"),
     clust2 = $("#fire"),
     clust3 = $("#ice"),
     clust4 = $("#lightning"),
-    win = $("#wins"),
-    lose = $("#losses"),
+    wins = $("#wins"),
+    losses = $("#losses"),
     clusters = $("#clusters"),
     goal = $("#goal");
 
@@ -28,7 +28,7 @@ function randGoal(obj) {
 
 // add value to total clusters collected
 function addCluster(obj) {
-    clusters.val(obj.value);
+    clusters.val(parseInt(clusters.val()) + parseInt(obj.value));
     // update text
     clusters.text(parseInt(clusters.text()) + parseInt(obj.value));
 }
@@ -36,27 +36,28 @@ function addCluster(obj) {
 // compare clusters to goal
 function checkClusters() {
     // check for win
-    if (clusters.val === goal.val) {
+    if (parseInt(clusters.val()) === parseInt(goal.val())) {
         win();
     }
     // check for lose
-    else if ( clusters.val > goal.val) {
+    else if (parseInt(clusters.val()) > parseInt(goal.val())) {
         lose();
     }
 }
 
 // win
 function win() {
-   
+   wins.text(parseInt(wins.text()) + 1);
 }
 
 // lose
 function lose() {
-
+    losses.text(parseInt(losses.text()) + 1);
 }
 
 /// events
 // initialize game
+clusters.val(0);
 randCluster(clust1, clust2, clust3, clust4);
 randGoal(goal);
 
@@ -64,5 +65,7 @@ $(document).ready(function() {
     $(".cluster").on("click", function() {
         addCluster(this);
         checkClusters();
+        console.log(clusters.val());
+        console.log(goal.val());
     });
 })
