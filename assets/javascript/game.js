@@ -21,8 +21,9 @@ function randCluster(obj1, obj2, obj3, obj4) {
 
 // generate random value for goal
 function randGoal(obj) {
-    goal.val(Math.floor(Math.random() * 120) + 1);
+    goal.val(Math.floor(Math.random() * 102) + 19);
 } 
 
-randCluster(clust1, clust2, clust3, clust4);
 /// events
+randCluster(clust1, clust2, clust3, clust4);
+randGoal(goal);
