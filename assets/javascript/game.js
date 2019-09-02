@@ -24,6 +24,19 @@ function randGoal(obj) {
     goal.val(Math.floor(Math.random() * 102) + 19);
 } 
 
+// add value to total clusters collected
+function addCluster(obj) {
+    clusters.val(obj.value);
+    // update text
+    clusters.text(parseInt(clusters.text()) + parseInt(obj.value));
+}
 /// events
+// initialize game
 randCluster(clust1, clust2, clust3, clust4);
 randGoal(goal);
+
+$(document).ready(function() { 
+    $(".cluster").on("click", function() {
+        addCluster(this);
+    });
+})
