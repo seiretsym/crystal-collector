@@ -73,10 +73,9 @@ randGoal(goal);
 
 // listener
 $(document).ready(function() { 
+    // whenever a cluster is clicked
     $(".cluster").on("click", function() {
-        addCluster(this);
-        checkClusters();
-        console.log(clusters.val());
-        console.log(goal.val());
+        addCluster(this); // add to cluster value
+        checkClusters(); // check for win or lose
     });
 })
