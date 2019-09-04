@@ -12,17 +12,43 @@ var clust1 = $("#earth"),
 
 /// functions
 // generate random values for each cluster
-function randCluster(obj1, obj2, obj3, obj4) {
-    clust1.val(Math.floor(Math.random() * 12) + 1);
-    clust2.val(Math.floor(Math.random() * 12) + 1);
-    clust3.val(Math.floor(Math.random() * 12) + 1);
-    clust4.val(Math.floor(Math.random() * 12) + 1);
+function randCluster() {
+    // generate random values for each cluster
+    clust1.val(Math.floor(Math.random() * 11) + 2);
+    clust2.val(Math.floor(Math.random() * 11) + 2);
+    clust3.val(Math.floor(Math.random() * 11) + 2);
+    clust4.val(Math.floor(Math.random() * 11) + 2);
+
+    // randomize clust2 value if it's the same as clust1
+    do {
+        clust2.val(Math.floor(Math.random() * 11) + 2);
+    }
+    while (clust2.val() === clust1.val());
+
+    // randomize clust3 value until it doesn't match clust1 or clust2
+    do {
+        clust3.val(Math.floor(Math.random() * 11) + 2);
+    }
+    while (clust3.val() === clust1.val() || clust3.val() === clust2.val());
+
+    // randomize clust3 value until it doesn't match clust1 or clust2 or clust3
+    do {
+        clust4.val(Math.floor(Math.random() * 11) + 2);
+    }
+    while (clust4.val() === clust1.val() || clust4.val() === clust2.val() || clust4.val() === clust3.val()); 
 }
 
-// generate random value for goal
+// generate random value for goal based on cluster values
 function randGoal(obj) {
-    goal.val(Math.floor(Math.random() * 102) + 19);
-    // update goal value
+    var total = 0;
+    // generate a random value for goal based on cluster values
+    total += clust1.val() * (Math.floor(Math.random() * 5) + 1);
+    total += clust2.val() * (Math.floor(Math.random() * 5) + 1);
+    total += clust3.val() * (Math.floor(Math.random() * 5) + 1);
+    total += clust4.val() * (Math.floor(Math.random() * 5) + 1);
+
+    // update goal value and text
+    goal.val(total);
     goal.text(goal.val());
 } 
 
@@ -61,14 +87,14 @@ function lose() {
 function newGame() {
     clusters.val(0);
     clusters.text(0);
-    randCluster(clust1, clust2, clust3, clust4);
+    randCluster();
     randGoal(goal);
 }
 
 /// events
 // initialize game
 clusters.val(0);
-randCluster(clust1, clust2, clust3, clust4);
+randCluster();
 randGoal(goal);
 
 // listener
