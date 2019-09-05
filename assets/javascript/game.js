@@ -97,6 +97,11 @@ clusters.val(0);
 randCluster();
 randGoal(goal);
 
+// changes the cursor to pointer so browser users know these clusters are clickable
+$(".cluster").hover(function() {
+    $(this).css("cursor", "pointer");
+})
+
 // listener
 $(document).ready(function() { 
     // whenever a cluster is clicked
