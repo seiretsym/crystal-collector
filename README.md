@@ -24,8 +24,8 @@ A game where the user clicks on Aether Clusters to collect a value equal to the 
 - VSCode
 
 ## Links
-Live Page: https://seiretsym.github.io/unit-4-game<br>
-Repo: https://github.com/seiretsym/unit-4-game<br>
+Live Page: https://seiretsym.github.io/crystal-collector<br>
+Repo: https://github.com/seiretsym/crystal-collector<br>
 LinkedIn: https://www.linkedin.com/in/kerwinhy/<br>
 GitHub: https://github.com/seiretsym<br>
 
