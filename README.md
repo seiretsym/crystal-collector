@@ -1,4 +1,4 @@
-# unit-4-b Crystal Collector
+# Crystal Collector
 
 ## Summary
 A game where the user clicks on Aether Clusters to collect a value equal to the goal. To win, the user must collect the exact amount of clusters to match the randomly generated goal by clicking on the clusters. If the cluster amount surpasses the goal amount, the user loses and a new goal is generated with new cluster values.
